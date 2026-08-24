@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 15
+names: ['Bear', 'Bird', 'Cat', 'Chicken', 'Deer', 'Dog', 'Face', 'Fox', 'License_Plate', 'Opossum', 'Person', 'Raccoon', 'Rat', 'Squirrel', 'Vehicle']
+
+roboflow:
+  workspace: mehmet-ipek
+  project: common-objects-qyk6c-killk
+  version: dataset
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/mehmet-ipek/common-objects-qyk6c-killk/dataset/dataset

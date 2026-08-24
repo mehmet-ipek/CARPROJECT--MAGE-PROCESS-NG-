@@ -1,0 +1,21 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# YOLO model dosyaları
+*.pt
+*.pth
+*.onnx
+
+# YOLO veri setindeki görseller
+**/train/images/
+**/valid/images/
+**/test/images/
+
+# YOLO çalışma çıktıları
+runs/

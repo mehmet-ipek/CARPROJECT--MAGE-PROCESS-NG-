@@ -1,0 +1,5 @@
+python-barcode[pil]>=0.15.1
+qrcode[pil]>=7.4
+Pillow>=10.0
+opencv-python>=4.8.0
+pyzbar>=0.1.9
