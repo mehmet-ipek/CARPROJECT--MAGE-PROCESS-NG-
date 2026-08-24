@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yapay Zeka Tabanlı Akıllı Araç Gözetim ve Takip Paneli</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #0b132b; color: #fff; margin: 0; padding: 20px; }
+        h2 { text-align: center; color: #6fffe9; }
+        .container { display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px; }
+        .panel { background: #1c2541; padding: 20px; border-radius: 10px; width: 45%; min-width: 450px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); margin-bottom: 20px; }
+        .controls { background: #1c2541; padding: 15px; border-radius: 10px; margin-bottom: 20px; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; }
+        .controls label { font-weight: bold; margin-right: 5px; color: #6fffe9; }
+        .controls select, .controls button, .btn-download { padding: 8px 12px; border-radius: 5px; border: none; background: #3a506b; color: white; cursor: pointer; text-decoration: none; font-size: 14px;}
+        .controls button { background: #00b4d8; font-weight: bold; }
+        .controls button:hover { background: #0077b6; }
+        .btn-download { background: #28a745; font-weight: bold; }
+        .btn-download:hover { background: #218838; }
+        img { width: 100%; border-radius: 5px; border: 2px solid #3a506b; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #3a506b; }
+        th { color: #6fffe9; }
+        .chart-container { width: 100%; max-width: 300px; margin: 20px auto; display: block; }
+    </style>
+</head>
+<body>
+
+    <h2>Yapay Zeka Tabanlı Akıllı Araç Gözetim ve Takip Paneli</h2>
+    <p style="text-align: center; color: #8d99ae;">Bartın Üniversitesi - Mühendislik Fakültesi Bilgisayar Mühendisliği | Otonom Sistemler Laboratuvarı</p>
+
+    <div class="controls">
+        <form method="POST" action="/update_config" style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+            <div>
+                <label>Dedektör / Model:</label>
+                <select name="detector">
+                    <option value="YOLO_CUSTOM" {% if detector_type == 'YOLO_CUSTOM' %}selected{% endif %}>YOLO Özel Model (best.pt)</option>
+                    <option value="YOLO11s" {% if detector_type == 'YOLO11s' %}selected{% endif %}>YOLO11s</option>
+                    <option value="YOLO11n" {% if detector_type == 'YOLO11n' %}selected{% endif %}>YOLO11n (Hızlı Nano)</option>
+                    <option value="YOLOv8s" {% if detector_type == 'YOLOv8s' %}selected{% endif %}>YOLOv8s</option>
+                    <option value="YOLOv8n" {% if detector_type == 'YOLOv8n' %}selected{% endif %}>YOLOv8n</option>
+                    <option value="RT-DETR" {% if detector_type == 'RT-DETR' %}selected{% endif %}>RT-DETR (Transformer)</option>
+                    <option value="MobileNet" {% if detector_type == 'MobileNet' %}selected{% endif %}>MobileNet-SSD</option>
+                </select>
+            </div>
+            <div>
+                <label>Tracker:</label>
+                <select name="tracker">
+                    <option value="BYTETRACK" {% if tracker_type == 'BYTETRACK' %}selected{% endif %}>ByteTrack (MOT - AI Tabanlı)</option>
+                    <option value="DEEPSORT" {% if tracker_type == 'DEEPSORT' %}selected{% endif %}>DeepSORT (Re-ID MOT)</option>
+                    <option value="LK" {% if tracker_type == 'LK' %}selected{% endif %}>LK (Optical Flow)</option>
+                    <option value="CSRT" {% if tracker_type == 'CSRT' %}selected{% endif %}>CSRT</option>
+                    <option value="KCF" {% if tracker_type == 'KCF' %}selected{% endif %}>KCF</option>
+                    <option value="MOSSE" {% if tracker_type == 'MOSSE' %}selected{% endif %}>MOSSE</option>
+                </select>
+            </div>
+            <div>
+                <label>Mesafe Tipi:</label>
+                <select name="distance">
+                    <option value="EUCLIDEAN" {% if distance_type == 'EUCLIDEAN' %}selected{% endif %}>EUCLIDEAN</option>
+                    <option value="MANHATTAN" {% if distance_type == 'MANHATTAN' %}selected{% endif %}>MANHATTAN</option>
+                    <option value="CHEBYSHEV" {% if distance_type == 'CHEBYSHEV' %}selected{% endif %}>CHEBYSHEV</option>
+                </select>
+            </div>
+            <button type="submit">Uygula / Güncelle</button>
+            <a href="/download_csv" class="btn-download">📊 Raporu İndir (CSV)</a>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="panel">
+            <h3>Canlı Kamera ve Algoritma Çıktısı</h3>
+            <img src="{{ url_for('video_feed') }}" alt="Canlı Kamera Akışı">
+        </div>
+
+        <div class="panel">
+            <h3>Araç Sınıfı Dağılım Analizi</h3>
+            <div class="chart-container">
+                <canvas id="trafficChart"></canvas>
+            </div>
+
+            <h3 style="margin-top:40px;">Son Sistem Logları (SQLite)</h3>
+            <table>
+                <tr>
+                    <th>Frame</th>
+                    <th>Dedektör/Tracker</th>
+                    <th>Mesafe</th>
+                    <th>FPS</th>
+                </tr>
+                {% for log in logs %}
+                <tr>
+                    <td>#{{ log[1] }}</td>
+                    <td>{{ log[2] }} / {{ log[3] }}</td>
+                    <td>{{ "%.2f"|format(log[5]) }} px</td>
+                    <td>{{ "%.2f"|format(log[7]) }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('trafficChart').getContext('2d');
+        const trafficChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Araba', 'Motor', 'Otobüs', 'Kamyon'],
+                datasets: [{
+                    data: [1, 1, 1, 1], 
+                    backgroundColor: ['#00b4d8', '#ffb703', '#fb8500', '#ef233c'],
+                    borderWidth: 1,
+                    borderColor: '#1c2541'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#fff' } }
+                }
+            }
+        });
+
+        setInterval(() => {
+            fetch('/api/stats')
+                .then(response => response.json())
+                .then(data => {
+                    trafficChart.data.datasets[0].data = [
+                        data["Araba"] || 0,
+                        data["Motor"] || 0,
+                        data["Otobus"] || 0,
+                        data["Kamyon"] || 0
+                    ];
+                    trafficChart.update();
+                })
+                .catch(error => console.error('Hata:', error));
+        }, 2000);
+    </script>
+</body>
+</html>

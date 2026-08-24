@@ -1,0 +1,287 @@
+{
+    "conf_0.05_mask_normal": {
+        "frames": 300,
+        "frames_with_detection": 300,
+        "coverage": 100.0,
+        "total_detection": 2146,
+        "avg_per_frame": 7.153333333333333,
+        "avg_conf": 0.17467000247270062,
+        "min_conf": 0.05009131506085396,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 1710,
+            "Kamyonet": 258,
+            "Otobus": 178
+        },
+        "avg_fps": 15.53660802280246,
+        "use_mask": true,
+        "preprocess": "normal",
+        "conf_threshold": 0.05
+    },
+    "conf_0.10_mask_normal": {
+        "frames": 300,
+        "frames_with_detection": 298,
+        "coverage": 99.33333333333333,
+        "total_detection": 1366,
+        "avg_per_frame": 4.553333333333334,
+        "avg_conf": 0.23342438577776597,
+        "min_conf": 0.10007542371749878,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 1135,
+            "Kamyonet": 120,
+            "Otobus": 111
+        },
+        "avg_fps": 15.367905353690782,
+        "use_mask": true,
+        "preprocess": "normal",
+        "conf_threshold": 0.1
+    },
+    "conf_0.15_mask_normal": {
+        "frames": 300,
+        "frames_with_detection": 281,
+        "coverage": 93.66666666666667,
+        "total_detection": 925,
+        "avg_per_frame": 3.0833333333333335,
+        "avg_conf": 0.2860222348006996,
+        "min_conf": 0.15011122822761536,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 783,
+            "Kamyonet": 61,
+            "Otobus": 81
+        },
+        "avg_fps": 16.30273879709416,
+        "use_mask": true,
+        "preprocess": "normal",
+        "conf_threshold": 0.15
+    },
+    "conf_0.20_mask_normal": {
+        "frames": 300,
+        "frames_with_detection": 248,
+        "coverage": 82.66666666666667,
+        "total_detection": 626,
+        "avg_per_frame": 2.0866666666666664,
+        "avg_conf": 0.3404633608488991,
+        "min_conf": 0.20024417340755463,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 527,
+            "Kamyonet": 40,
+            "Otobus": 59
+        },
+        "avg_fps": 15.515974029988095,
+        "use_mask": true,
+        "preprocess": "normal",
+        "conf_threshold": 0.2
+    },
+    "conf_0.25_mask_normal": {
+        "frames": 300,
+        "frames_with_detection": 216,
+        "coverage": 72.0,
+        "total_detection": 439,
+        "avg_per_frame": 1.4633333333333334,
+        "avg_conf": 0.3899951964820436,
+        "min_conf": 0.250164270401001,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 362,
+            "Kamyonet": 26,
+            "Otobus": 51
+        },
+        "avg_fps": 15.951230497674572,
+        "use_mask": true,
+        "preprocess": "normal",
+        "conf_threshold": 0.25
+    },
+    "conf_0.30_mask_normal": {
+        "frames": 300,
+        "frames_with_detection": 186,
+        "coverage": 62.0,
+        "total_detection": 326,
+        "avg_per_frame": 1.0866666666666667,
+        "avg_conf": 0.4301954551708479,
+        "min_conf": 0.3006579875946045,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 262,
+            "Otobus": 45,
+            "Kamyonet": 19
+        },
+        "avg_fps": 15.365152142425012,
+        "use_mask": true,
+        "preprocess": "normal",
+        "conf_threshold": 0.3
+    },
+    "conf_0.35_mask_normal": {
+        "frames": 300,
+        "frames_with_detection": 150,
+        "coverage": 50.0,
+        "total_detection": 232,
+        "avg_per_frame": 0.7733333333333333,
+        "avg_conf": 0.47276326307448846,
+        "min_conf": 0.3503459095954895,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 181,
+            "Otobus": 39,
+            "Kamyonet": 12
+        },
+        "avg_fps": 15.575720432414746,
+        "use_mask": true,
+        "preprocess": "normal",
+        "conf_threshold": 0.35
+    },
+    "conf_0.40_mask_normal": {
+        "frames": 300,
+        "frames_with_detection": 114,
+        "coverage": 38.0,
+        "total_detection": 155,
+        "avg_per_frame": 0.5166666666666667,
+        "avg_conf": 0.5218608921574008,
+        "min_conf": 0.4042277932167053,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 114,
+            "Otobus": 35,
+            "Kamyonet": 6
+        },
+        "avg_fps": 15.883858664900481,
+        "use_mask": true,
+        "preprocess": "normal",
+        "conf_threshold": 0.4
+    },
+    "conf_0.50_mask_normal": {
+        "frames": 300,
+        "frames_with_detection": 71,
+        "coverage": 23.666666666666668,
+        "total_detection": 81,
+        "avg_per_frame": 0.27,
+        "avg_conf": 0.5941685680989865,
+        "min_conf": 0.5024623870849609,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 52,
+            "Otobus": 25,
+            "Kamyonet": 4
+        },
+        "avg_fps": 15.777028936786895,
+        "use_mask": true,
+        "preprocess": "normal",
+        "conf_threshold": 0.5
+    },
+    "conf_0.10_nomask_normal": {
+        "frames": 300,
+        "frames_with_detection": 298,
+        "coverage": 99.33333333333333,
+        "total_detection": 1516,
+        "avg_per_frame": 5.053333333333334,
+        "avg_conf": 0.23023659384521927,
+        "min_conf": 0.10001667588949203,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 1285,
+            "Kamyonet": 120,
+            "Otobus": 111
+        },
+        "avg_fps": 15.954684350288977,
+        "use_mask": false,
+        "preprocess": "normal",
+        "conf_threshold": 0.1
+    },
+    "conf_0.15_nomask_normal": {
+        "frames": 300,
+        "frames_with_detection": 281,
+        "coverage": 93.66666666666667,
+        "total_detection": 1019,
+        "avg_per_frame": 3.3966666666666665,
+        "avg_conf": 0.28242937527355666,
+        "min_conf": 0.15011122822761536,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 877,
+            "Kamyonet": 61,
+            "Otobus": 81
+        },
+        "avg_fps": 15.85732181925988,
+        "use_mask": false,
+        "preprocess": "normal",
+        "conf_threshold": 0.15
+    },
+    "conf_0.20_nomask_normal": {
+        "frames": 300,
+        "frames_with_detection": 248,
+        "coverage": 82.66666666666667,
+        "total_detection": 688,
+        "avg_per_frame": 2.2933333333333334,
+        "avg_conf": 0.3354533091837237,
+        "min_conf": 0.20024417340755463,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 589,
+            "Kamyonet": 40,
+            "Otobus": 59
+        },
+        "avg_fps": 16.484254275567096,
+        "use_mask": false,
+        "preprocess": "normal",
+        "conf_threshold": 0.2
+    },
+    "conf_0.30_nomask_normal": {
+        "frames": 300,
+        "frames_with_detection": 186,
+        "coverage": 62.0,
+        "total_detection": 348,
+        "avg_per_frame": 1.16,
+        "avg_conf": 0.4254987560983362,
+        "min_conf": 0.3006366193294525,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 284,
+            "Otobus": 45,
+            "Kamyonet": 19
+        },
+        "avg_fps": 15.94205122853148,
+        "use_mask": false,
+        "preprocess": "normal",
+        "conf_threshold": 0.3
+    },
+    "conf_0.15_mask_nightpreprocess": {
+        "frames": 300,
+        "frames_with_detection": 281,
+        "coverage": 93.66666666666667,
+        "total_detection": 925,
+        "avg_per_frame": 3.0833333333333335,
+        "avg_conf": 0.2860222348006996,
+        "min_conf": 0.15011122822761536,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 783,
+            "Kamyonet": 61,
+            "Otobus": 81
+        },
+        "avg_fps": 15.37488333087677,
+        "use_mask": true,
+        "preprocess": "night",
+        "conf_threshold": 0.15
+    },
+    "conf_0.15_nomask_nightpreprocess": {
+        "frames": 300,
+        "frames_with_detection": 281,
+        "coverage": 93.66666666666667,
+        "total_detection": 1019,
+        "avg_per_frame": 3.3966666666666665,
+        "avg_conf": 0.28242937527355666,
+        "min_conf": 0.15011122822761536,
+        "max_conf": 0.9107519388198853,
+        "class_counts": {
+            "Araba": 877,
+            "Kamyonet": 61,
+            "Otobus": 81
+        },
+        "avg_fps": 15.601531367648477,
+        "use_mask": false,
+        "preprocess": "night",
+        "conf_threshold": 0.15
+    }
+}

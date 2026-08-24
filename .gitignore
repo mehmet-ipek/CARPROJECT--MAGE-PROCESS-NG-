@@ -1,0 +1,19 @@
+__pycache__/
+*.pt
+*.log
+benchmark_logs*/
+benchmark_reports/
+otomatik_kirpilmis_araclar*/
+Manuel_Test_Gercek_Degerler*/
+bigdataset/
+yolo_dataset/
+models/
+*.mp4
+*.zip
+*.caffemodel
+
+# Test / çıktı dosyaları
+deep_test_bestpt/logs/
+output/
+*.db
+*.db-journal
